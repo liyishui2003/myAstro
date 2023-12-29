@@ -10,7 +10,7 @@ const identity = {
   hobbies: ["Reading", "Cycling", "movie"],
 };
 
-const skills = ["C++", "algorithm", "writing","somethingMisc"];
+const skills = ["C++", "Algorithm", "Writing","SomethingMisc"];
 
 const happy = true;
 const finished = true;
@@ -18,7 +18,6 @@ const goal = 3;
 
 const skillColor = "navy";
 const fontWeight = "bold";
-const textCase = "uppercase";
 ---
 
 <html lang="zh">
@@ -30,24 +29,21 @@ const textCase = "uppercase";
   <body>
     <Header />
     <h1>{pageTitle}</h1>
-	<style define:vars={{skillColor,fontWeight,textCase}}>
+	<style define:vars={{skillColor,fontWeight,pageTitle}}>
 		h1 {
 		  color: rgb(72, 126, 234);
-		  font-size: 4rem;
+		  font-size: 2rem;
 		}
 		.skill {
 		  color: var(--skillColor);
 		  font-weight: var(--fontWeight);
-    	  text-transform: var(--textCase);
+		}
+		.pageTitle {
+			color: rgb(72, 126, 234);
 		}
 	</style>
 	
-    <h2>……和我的新 Astro 网站！</h2>
-
-    <p>我正在学习 Astro 的入门教程。这是我网站上的第二个页面，也是我自己建立的第一页面！</p>
-
-    <p>随着我完成更多教程，该站点将更新，所以请继续查看我的旅程将如何进行吧！</p>
-	<p>以下是关于我的几个事实：</p>
+	<p>以下是关于我的几个事实^_^</p>
 	<ul>
 	<li>我的名字是{identity.firstName}.</li>
 	<li>我住在{identity.country}。我的职业是{identity.occupation}。</li>
@@ -59,11 +55,6 @@ const textCase = "uppercase";
 	<ul>
 	{skills.map((skill) => <li class="skill">{skill}</li>)}
 	</ul>
-	{happy && <p>我非常乐意学习 Astro！</p>}
-
-	{finished && <p>我完成了这节教程！</p>}
-
-	{goal === 3 ? <p>我的目标是在三天内完成。</p> : <p>我的目标不是 3 天。</p>}
 	<Footer />
 	<script>
 		import "../scripts/menu.js";
