@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: '30dayOs_day01'
-pubDate: 2023-12-04
+pubDate: 2023-12-31
 description: 'something about myOs'
 author: 'liyishui'
 image:
