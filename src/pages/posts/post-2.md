@@ -10,6 +10,9 @@ pubDate: 2023-12-30
 tags: ["Linux"]
 ---
 
+## 成果展示
+
+<Image src="https://pic.imgdb.cn/item/658f9fb1c458853aef42506d.png"  width="900" height="500"/>
 
 ## 设备要求和实现的功能：
 实现的功能：
@@ -19,16 +22,13 @@ tags: ["Linux"]
 ## 使用方法：
 在服务器上运行server.py程序，在两台客户机上分别运行client.py程序，就会弹出图形化界面，就可以开始愉快使用啦。需要修改的地方是client.py里HOST要设置为服务器的ip地址，以及两处toFile要换成对应的服务器路径和本地存储路径。服务器的代码使用了python的tk库，但我用的是华为云的ECS服务器，是linux内核，并不支持跳出图形化界面，要跳出图形化界面的话需要下载X11,把消息转发到本地，在本地才能弹出窗口。具体的配置链接请看[https://www.cnblogs.com/yyiiing/p/17912650.html#5240133]
 
-##通信的基本原理：
+## 通信的基本原理：
 因为临近考试了，虽然感觉很好玩，但没有花太多时间折腾，就搓了两天hh。原理很简单，用服务器作为中转，两台客户机和服务器建立起TCP连接，客户机A发消息给服务器，服务器再转发给客户机B。发文件的原理其实也是一样的，只不过是客户机A先把文件传输到服务器上，然后客户机再从服务器上读取。
 
 ## UI界面介绍：
 右边蓝色框仅显示聊天的文本信息，左边黄色框显示文件传输信息。
 send Text按钮是用来发送文本的
 select File按钮是用来选择文件的，点击后会出现如下界面：
-
-![](https://img2023.cnblogs.com/blog/2542422/202312/2542422-20231220141833679-1619785611.png)
-
 send File按钮是用来发送文件的
 receive按钮是用来接收所有未接收的文件
 
@@ -78,8 +78,8 @@ def send_messages(self):
 ```
 
 对于接收的消息：
-* 如果是以**#fileData#**开头,表明这是服务器在向你转发文件，你的客户端将会读取文件名(filepath）和数据(filedata)，进行写入操作，并在左侧消息栏显示**[Download] File download complete**
-* 如果是以**#sendFile#**开头，表明这是对方在向你的客户机发送文件，发送完成之后对方朝服务器发送了**#sendFile#filename**，表示发送成功。服务器再转告你，你的左侧消息栏就会弹出一条**[Newfile] fileName**
+* 如果是以 **#fileData#** 开头,表明这是服务器在向你转发文件，你的客户端将会读取文件名(filepath）和数据(filedata)，进行写入操作，并在左侧消息栏显示 **[Download] File download complete**
+* 如果是以 **#sendFile#** 开头，表明这是对方在向你的客户机发送文件，发送完成之后对方朝服务器发送了 **#sendFile#filename**，表示发送成功。服务器再转告你，你的左侧消息栏就会弹出一条 **[Newfile] fileName**
 * 否则就是常规的文本消息操作，直接打印到图形化界面即可
 ```
 def recv(sock, BUFSIZ, chat_window):
@@ -211,8 +211,8 @@ def trans(sock1, sock2, BUFSIZ, user1_files_queue, user2_files_queue):
 
 * 发送的消息可以拿md5或者sha256加密一下，一点都不加的话随便一抓包就知道我们在聊什么了哈哈哈 
 
-##源码：
-###客户端
+## 源码：
+### 客户端
 ```
 import os.path
 from socket import *
