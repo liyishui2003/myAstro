@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: '记一次失败的CS144 Lab0尝试'
-pubDate: 2024-01-03
-description: 'something about 6.828'
+pubDate: 2024-01-03-2024-01-07
+description: 'something about cs144'
 author: 'liyishui'
 image:
     url: 'https://pic.imgdb.cn/item/65915597c458853aef276817.jpg'
